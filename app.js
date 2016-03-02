@@ -3,9 +3,18 @@ var http = require('http');
 
 var app = express();
 
+app.configure(function() {
+  app.use(express.bodyParser());
+});
 
 app.get('/', function (req, res) {
-    res.send("teste node.js");
+    res.send("hello world");
+    
+});
+app.post('/coord', function (req, res) {
+	console.log(req.body);      // your JSON
+    
+
 });
 
 console.log("escutando na porta 8080")
